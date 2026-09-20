@@ -10,7 +10,7 @@
                 <p class="about-me-text">about me</p>
                 <div class="grp-btn">
                     <el-button type="primary" plain @click="showPopup = true">what would you like to know?</el-button>
-                    <el-button type="primary" @click="handleNextPage()">Next Page</el-button>
+                    <el-button type="primary" @click="handleNextPage()">lets go!</el-button>
                 </div>
             </div>
         </div>

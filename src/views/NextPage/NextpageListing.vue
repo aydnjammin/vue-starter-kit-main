@@ -1,8 +1,8 @@
 <<template>
     <div class="app">
         <div class="buttons">
-            <el-button type="primary" plain @click="handleGoBack()">Go Back</el-button>
-            <el-button type="primary" @click="handleNextPage">Go To Child Page</el-button>
+            <el-button type="primary" plain @click="handleGoBack()">time travel</el-button>
+            <el-button type="primary" @click="handleNextPage">go to next page</el-button>
         </div>
 
         <el-card class="about-card">
@@ -19,7 +19,7 @@
             <p>doing this to learn new things and gain more skills</p>
 
             <h3>skills</h3>
-            <div class="skills">
+            <div class="contact">
                 <el-tag type="primary">email: ca.nurzahid@gmail.com</el-tag>
                 <el-tag type="success">canva</el-tag>
                 <el-tag type="warning">a bit of java</el-tag>
