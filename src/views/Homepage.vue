@@ -5,7 +5,7 @@
             <!-- Background Image -->
             <img src="@/assets/images/page.jpeg" alt="Page image" class="banner-img" />
 
-            <!-- Profile Overlay (Positioned on the right side) -->
+            <!-- Profile Overlay -->
             <div class="profile">
                 <p class="about-me-text">about me</p>
                 <div class="grp-btn">
@@ -46,25 +46,25 @@ export default {
 
 <style lang="scss" scoped>
 .banner-container {
-    position: relative; /* Parent anchor for absolute positioning */
+    position: relative;
     width: 100%;
-    max-width: 900px; /* Optional max width for clean layout */
+    max-width: 900px;
     margin: 0 auto;
 
     .banner-img {
         width: 100%;
         height: auto;
         display: block;
-        border-radius: 8px; /* Optional rounded corners */
+        border-radius: 8px;
     }
 
     .profile {
         position: absolute;
         top: 50%;
-        right: 100px; /* Aligns profile to the right side */
-        transform: translateY(-50%); /* Centers profile vertically */
+        right: 100px;
+        transform: translateY(-50%);
         padding: 20px;
-        background-color: rgba(0, 0, 0, 0); /* Optional semi-transparent background for readability */
+        background-color: rgba(0, 0, 0, 0);
         border-radius: 8px;
 
         .about-me-text {
@@ -78,6 +78,40 @@ export default {
         .grp-btn {
             display: flex;
             gap: 10px;
+        }
+    }
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE STYLES (Tablet & Mobile devices <= 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+    .banner-container {
+        /* On mobile, remove absolute overlay so content doesn't overflow */
+        display: flex;
+        flex-direction: column;
+
+        .profile {
+            position: static; /* Takes profile out of absolute positioning */
+            transform: none;
+            width: 100%;
+            padding: 16px 0;
+            text-align: center;
+
+            .about-me-text {
+                color: #303133; /* Changes white text to dark so it's readable off the image */
+                font-size: 1.25rem;
+            }
+
+            .grp-btn {
+                flex-direction: column; /* Stacks buttons vertically on narrow screens */
+                width: 100%;
+
+                .el-button {
+                    width: 100%; /* Full width buttons for mobile touch targets */
+                    margin-left: 0; /* Clears default Element UI button margins */
+                }
+            }
         }
     }
 }
