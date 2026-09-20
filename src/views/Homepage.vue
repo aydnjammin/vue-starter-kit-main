@@ -1,0 +1,84 @@
+<template>
+    <div class="app">
+        <!-- Container holding the image and overlay -->
+        <div class="banner-container">
+            <!-- Background Image -->
+            <img src="@/assets/images/page.jpeg" alt="Page image" class="banner-img" />
+
+            <!-- Profile Overlay (Positioned on the right side) -->
+            <div class="profile">
+                <p class="about-me-text">about me</p>
+                <div class="grp-btn">
+                    <el-button type="primary" plain @click="showPopup = true">what would you like to know?</el-button>
+                    <el-button type="primary" @click="handleNextPage()">Next Page</el-button>
+                </div>
+            </div>
+        </div>
+       
+        <Base-Popup 
+            :visible="showPopup"
+            title="curious huh?"
+            message="click the other button ---->"
+            @close-popup="closePopup"
+        />
+    </div>
+</template>
+
+<script>
+export default {
+    name: "Dashboard",
+    components: {},
+    data() {
+        return {
+            showPopup: false,
+        };
+    },
+    methods: {
+        closePopup() {
+            this.showPopup = false;
+        },
+        handleNextPage() {
+            this.$router.push({ path: '/next-page' });
+        }
+    },
+};
+</script>
+
+<style lang="scss" scoped>
+.banner-container {
+    position: relative; /* Parent anchor for absolute positioning */
+    width: 100%;
+    max-width: 900px; /* Optional max width for clean layout */
+    margin: 0 auto;
+
+    .banner-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px; /* Optional rounded corners */
+    }
+
+    .profile {
+        position: absolute;
+        top: 50%;
+        right: 100px; /* Aligns profile to the right side */
+        transform: translateY(-50%); /* Centers profile vertically */
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0); /* Optional semi-transparent background for readability */
+        border-radius: 8px;
+
+        .about-me-text {
+            color: #ffffff; 
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .grp-btn {
+            display: flex;
+            gap: 10px;
+        }
+    }
+}
+</style>
